@@ -1,0 +1,12 @@
+on:
+    push:
+    workflow_dispatch:
+
+jobs:
+    job:
+        runs-on: macos-15
+        steps:
+
+            - uses: actions/checkout@main
+            - run: defaults write ~/Library/Preferences/com.apple.dt.Xcode.plist IDESkipPackagePluginFingerprintValidatation -boolean true
+            - run: xcodebuild
